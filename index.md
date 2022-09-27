@@ -6,3 +6,4 @@ Okay lets start something new here
 1. in time
 2. new list
 3. in **VSC**
+[Lab Report 1](https://tonytian919.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
