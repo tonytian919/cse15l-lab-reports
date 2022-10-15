@@ -135,7 +135,106 @@ static int[] reversed(int[] arr) {
 ```
 
 **Connection between the symptom and the bug**
+
 Bug: There is no value stored in newArray. 
+
 Connection: Thus, each time we process the loop, we make the values of the original array arr 0. When we return arr at last, we get an array the same as newArray, which does not contain values.
+
+* **filter** in ListExamples
+
+**The failure-inducing input**
+```
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.Assert.*;
+import org.junit.*;
+
+// given a substring, checkString checks if the parameter contains the substring.
+class someChecker implements StringChecker {
+    String str;
+    public someChecker(String s) {
+        this.str = s;
+    }
+    public boolean checkString(String s) {
+        return s.contains(this.str);
+    }
+}
+
+public class ListTests {
+
+    @Test
+    public void testFilter() {
+        List<String> input = new ArrayList<>( );
+        input.add("head");
+        input.add("hello");
+        input.add("water");
+        input.add("bean");
+        input.add("yellow");
+        input.add("mean");
+        input.add("lean");
+        input.add("memo");
+        input.add("leak");
+        List<String> expected = new ArrayList<>( );
+        expected.add("head");
+        expected.add("bean");
+        expected.add("mean");
+        expected.add("lean");
+        expected.add("leak");
+        List<String> output = new ArrayList<>( );
+        StringChecker sc = new someChecker("ea");
+        output = ListExamples.filter(input, sc);
+        assertEquals(expected, output);
+    }
+}
+```
+
+**The symptom**
+![Image](Lab3.2.png)
+
+expect value is <[head, bean, mean, lean, leak]> but actual value was:<[leak, lean, mean, bean, head]>.
+
+**The bug**
+
+original code:
+```
+interface StringChecker { boolean checkString(String s); }
+
+class ListExamples {
+
+  // Returns a new list that has all the elements of the input list for which
+  // the StringChecker returns true, and not the elements that return false, in
+  // the same order they appeared in the input list;
+  static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        //bug here
+        result.add(0, s);
+      }
+    }
+    return result;
+  }
+}
+```
+
+fixed code:
+```
+  static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        //bug fixed
+        result.add(s);
+      }
+    }
+    return result;
+  }
+```
+
+**Connection between the symptom and the bug**
+
+Bug: During the loops, it stores the values at index 0 each time the String passed checkString(), wihch is in the reverse sequence compared with expected one.
+
+Connection: The output generates by adding the selected String to the *start* of the result list.
 
 
