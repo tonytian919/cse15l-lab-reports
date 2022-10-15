@@ -4,6 +4,7 @@
 
 ### Lab2 ###
 * The code for Lab2 SearchEngine
+
 ```
 import java.io.IOException;
 import java.net.URI;
@@ -53,10 +54,10 @@ class SearchEngine {
         Server.start(port, new Handler());
     }
 }
-
 ```
 
 * check /
+
 ![Image](Lab2.1.png)
 
 **Methods Called**
@@ -69,6 +70,7 @@ url.getPath = /; ram = Start; after = "".
 No values change.
 
 * Add something
+
 ![Image](Lab2.2.png)
 
 **Methods Called**
@@ -106,6 +108,7 @@ ram remains *Srart apple melon watermelon*; after changes from "" to "melon" the
 ```
 
 **The symptom**
+
 ![Image](Lab3.1.png)
 
 expected value is { 3, 2, 1 }; actual output is { 0, 0, 0 }.
@@ -189,6 +192,7 @@ public class ListTests {
 ```
 
 **The symptom**
+
 ![Image](Lab3.2.png)
 
 expect value is <[head, bean, mean, lean, leak]> but actual value was:<[leak, lean, mean, bean, head]>.
