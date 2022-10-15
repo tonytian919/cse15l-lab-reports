@@ -7,3 +7,4 @@ Okay lets start something new here
 2. new list
 3. in **VSC**
 [Lab Report 1](https://tonytian919.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
+[Lab Report 2](https://tonytian919.github.io/cse15l-lab-reports/lab-report-3.html)
