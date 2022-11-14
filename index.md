@@ -12,4 +12,4 @@ Okay lets start something new here
 
 [Lab Report 2](https://tonytian919.github.io/cse15l-lab-reports/lab-report-3.html)
 
-[Lab Report 4](https://tonytian919.github.io/cse15l-lab-reports/lab-report-4-week6&7.html)
+[Lab Report 4](https://tonytian919.github.io/cse15l-lab-reports/lab-report-4-week-6&7.html)
